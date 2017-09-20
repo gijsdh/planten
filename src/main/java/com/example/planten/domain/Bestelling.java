@@ -32,7 +32,7 @@ public class Bestelling implements Serializable{
 	
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "id.bestelRegelId")
-	List <Bestelregels> bestelregels = new ArrayList<>();
+	private List <Bestelregels> bestelregels = new ArrayList<>();
 	
 	private Date besteldat;
 	private Date leverdat;
@@ -92,12 +92,5 @@ public class Bestelling implements Serializable{
 	}
 	public void setStatus(String status) {
 		this.status = status;
-	}
-
-	
-	
-	
-	
-	
-	
+	}	
 }

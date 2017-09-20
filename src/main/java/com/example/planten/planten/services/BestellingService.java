@@ -22,7 +22,6 @@ public class BestellingService {
 	
 	
 	public Iterable<Bestelling> findAll(){
-		System.out.println("here");
 		return bestellingRepository.findAll();
 	}
 	

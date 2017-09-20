@@ -23,7 +23,8 @@ public class Plant {
     private Integer bloeibeg;
     @Column(columnDefinition="int")
     private Integer bloeieind;
-    private BigDecimal prijs;
+    @Column(columnDefinition="Decimal(6,2) default '100.00'")
+    private Double prijs;
     private Integer vrr_aantal;
     private Integer vrr_min;
 
@@ -71,10 +72,11 @@ public class Plant {
 	public void setBloeieind(int bloeieind) {
 		this.bloeieind = bloeieind;
 	}
-	public BigDecimal getPrijs() {
-		return prijs.setScale(2);
+	public Double getPrijs() {
+//		return prijs.setScale(2);
+		return prijs;
 	}
-	public void setPrijs(BigDecimal prijs) {
+	public void setPrijs(Double prijs) {
 		this.prijs = prijs;
 	}
 	public Integer getVrr_aantal() {
