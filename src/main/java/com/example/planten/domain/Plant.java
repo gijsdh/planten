@@ -72,7 +72,7 @@ public class Plant {
 		this.bloeieind = bloeieind;
 	}
 	public BigDecimal getPrijs() {
-		return prijs;
+		return prijs.setScale(2);
 	}
 	public void setPrijs(BigDecimal prijs) {
 		this.prijs = prijs;

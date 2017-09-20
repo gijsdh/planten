@@ -21,7 +21,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.example.planten.domain.Bestelling;
 import com.example.planten.domain.BestellingModel;
+import com.example.planten.domain.Bestelregels;
 import com.example.planten.domain.Leveranciers;
+import com.example.planten.planten.services.BestelRegelsService;
 import com.example.planten.planten.services.BestellingService;
 import com.example.planten.planten.services.LeverancierService;
 
@@ -38,8 +40,8 @@ public class BestellingEndpoint {
 	private BestellingService bestelService;
 	
 	
-	 
-	
+	@Autowired 
+	private BestelRegelsService bestelRegelservice;
 	@GET
 	@Path("all")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -89,6 +91,7 @@ public class BestellingEndpoint {
 	
 	/**
 	 * This function only uses the ID (idBestelling) van een bestelling om de status aan te passen. 
+	 * Hij toggelt hem zelf in de database.
 	 * 
 	 * @param bestelling
 	 * @param id
@@ -119,6 +122,19 @@ public class BestellingEndpoint {
 	
 	}
 	                                   
+	
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+//	@Produces(MediaType.TEXT_PLAIN)
+	@Path("adBestelRegel")
+	public Response adBestelRegel(@RequestBody Bestelregels bestelregel) {
+		
+		
+		bestelRegelservice.saveNewBestelRegel(bestelregel);
+		
+		return Response.ok().build();
+	
+	}
 	
 	
 

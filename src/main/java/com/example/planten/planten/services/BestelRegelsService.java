@@ -31,7 +31,11 @@ public Iterable<Bestelregels> findByCustom(Integer id){
 	return bestelregelRepository.findAll();
 }
 
-
+public void saveNewBestelRegel(Bestelregels bestelregels) {
+	   
+	bestelregelRepository.save(bestelregels);
+	   
+}
 
 
 

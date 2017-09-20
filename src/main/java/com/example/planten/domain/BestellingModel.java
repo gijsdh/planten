@@ -31,7 +31,7 @@ public class BestellingModel {
 	}
     
     public BigDecimal getBedrag() {
-		return bestelling.getBedrag();
+		return bestelling.getBedrag().setScale(2);
 	}
     
     public String getStatus() {

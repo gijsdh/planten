@@ -6,6 +6,8 @@ import java.math.BigDecimal;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -22,6 +24,7 @@ import java.math.BigDecimal;
 public class Bestelregels implements Serializable {
 	
 	@EmbeddedId
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private BestelRegelsId id;
 
 	public BestelRegelsId getId() {
@@ -45,8 +48,7 @@ public class Bestelregels implements Serializable {
 //	private int artcode;
 	private int aantal;
 	private BigDecimal bestelprijs;
-	
-	 
+	  
 	
     public Plant getPlant() {
 		return plant;
@@ -74,7 +76,7 @@ public class Bestelregels implements Serializable {
 		this.aantal = aantal;
 	}
 	public BigDecimal getBestelprijs() {
-		return bestelprijs;
+		return bestelprijs.setScale(2);
 	}
 	public void setBestelprijs(BigDecimal bestelprijs) {
 		this.bestelprijs = bestelprijs;

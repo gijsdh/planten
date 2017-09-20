@@ -81,8 +81,9 @@ public class Bestelling implements Serializable{
 		this.leverdat = leverdat;
 	}
 	public BigDecimal getBedrag() {
-		return bedrag;
+		return bedrag.setScale(2);
 	}
+	
 	public void setBedrag(BigDecimal bedrag) {
 		this.bedrag = bedrag;
 	}
