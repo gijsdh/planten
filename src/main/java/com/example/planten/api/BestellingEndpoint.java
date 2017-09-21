@@ -109,7 +109,7 @@ public class BestellingEndpoint {
 	@Path("changeTodeliverd/{idBestelling}")
 	public Response changeStatus(@RequestBody Bestelling bestelling,@PathParam("idBestelling") Integer id) {
 		
-		System.out.println("hereHHHHHHHHHHHHHHHHHHHHHHHhh");
+		
 		//System.out.println(heelobject.getBedrag());
 		Bestelling dummie = bestelService.findByid(id);
 		 
@@ -117,7 +117,7 @@ public class BestellingEndpoint {
 			dummie.setStatus("A");
 		}
 		else if(dummie.getStatus().equals("A")) {
-			System.out.println("C");
+			dummie.setStatus("C");
 		}
 		
 		
