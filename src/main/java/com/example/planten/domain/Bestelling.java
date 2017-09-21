@@ -30,7 +30,7 @@ public class Bestelling implements Serializable{
 	@Column(name = "bestelnr", columnDefinition= "int default 100")
 	private Integer id;
 	
-	@JsonIgnore
+	
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "id.bestelRegelId")
 	List <Bestelregels> bestelregels = new ArrayList<>();
 	
@@ -62,7 +62,7 @@ public class Bestelling implements Serializable{
 	public void setLeverancier(Leveranciers leverancier) {
 		this.leverancier = leverancier;
 	}
-	public long getId() {
+	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
