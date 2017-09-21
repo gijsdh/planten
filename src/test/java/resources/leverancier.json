@@ -1,0 +1,18 @@
+[
+  {
+    "id": 192,
+    "status": "C",
+    "leverancier": "FLORA BV.",
+    "besteldat": "1997-09-13",
+    "leverdat": "1997-09-23",
+    "bedrag": 330.75
+  },
+  {
+    "id": 197,
+    "status": "C",
+    "leverancier": "FLORA BV.",
+    "besteldat": "1997-09-14",
+    "leverdat": "1997-09-23",
+    "bedrag": 966.95
+  }
+]

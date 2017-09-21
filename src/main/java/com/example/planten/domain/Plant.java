@@ -13,7 +13,7 @@ public class Plant {
     
     @Id
     @Column(name = "artcode", columnDefinition="int")
-    private long id;
+    private Integer id;
     
     private String plantennaam;
     private String soort;
@@ -29,10 +29,10 @@ public class Plant {
 
     @Column(columnDefinition = "char")
     private String BTWtype;
-	public long getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getPlantennaam() {
@@ -73,7 +73,7 @@ public class Plant {
 		this.bloeibeg = bloeibeg;
 	}
 	public Months getBloeieind() {
-		if(bloeibeg!=null) {
+		if(bloeieind!=null) {
 			return Months.values()[bloeieind];
 			}
 			else {
@@ -84,6 +84,7 @@ public class Plant {
 		this.bloeieind = bloeieind;
 	}
 	public BigDecimal getPrijs() {
+		if(prijs==null) {return null;}
 		return prijs.setScale(2);
 	}
 	public void setPrijs(BigDecimal prijs) {

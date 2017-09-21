@@ -25,7 +25,12 @@ public class PlantEndpoint {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response listGroep(){
+		
+		System.out.println("hallo");
 		Iterable <Plant> result = plantenService.findAll();
+		System.out.println(result);
+		
+		
 		return Response.ok(result).build();
 	}
 	
@@ -40,7 +45,7 @@ public class PlantEndpoint {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("{id}")
-	public Response getPlantById(@PathParam("id") Long id) {
+	public Response getPlantById(@PathParam("id") Integer id) {
 		Plant plant = this.plantenService.findById(id);
 		System.out.println(plant);
 		if (plant != null) {

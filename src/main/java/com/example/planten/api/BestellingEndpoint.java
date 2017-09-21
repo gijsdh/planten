@@ -79,7 +79,7 @@ public class BestellingEndpoint {
 	@Path("leverancier/{naam}")
 	public Response subSetLeveranciers(@PathParam("naam") String naam){
 		Iterable <Bestelling> bestellingen = bestelService.findByLeveranciersNaam(naam);
-		
+		System.out.println("hallo");
 		List <BestellingModel> bestellingm = new ArrayList<>();
 		for(Bestelling b:bestellingen) {
 			bestellingm.add(new BestellingModel(b));
@@ -136,10 +136,20 @@ public class BestellingEndpoint {
 	@Path("adBestelRegel")
 	public Response adBestelRegel(@RequestBody Bestelregels bestelregel) {
 		
-		System.out.println("hallo");
+	
+		Integer idBestelling = bestelService.findByid(bestelregel.getId().getBestelRegelId()).getId();
+		Integer idArtikel = plantservice.findById(bestelregel.getId().getArtcodeID()).getId();
 		
-		if(bestelService.findByid(bestelregel.getId().getBestelRegelId())!=null && plantservice.findById(bestelregel.getId().getArtcodeID())!=null)
-		{
+		if(bestelRegelservice.findByBothId(idBestelling, idArtikel) !=null) {
+			
+			
+			System.out.println("already exist");
+			return Response.status(Status.UNAUTHORIZED).build();
+			
+		}
+		if(bestelService.findByid(bestelregel.getId().getBestelRegelId())==null || plantservice.findById(bestelregel.getId().getArtcodeID())==null )
+		{			
+			System.out.println("error in post");
 			return Response.status(Status.UNAUTHORIZED).build();
 		}
 		

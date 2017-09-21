@@ -29,7 +29,7 @@ public class PlantService {
 	 * @param id the id of the Question
 	 * @return requested Question or null if it does not exist
 	 */
-	public Plant findById(long id) {
+	public Plant findById(Integer id) {
 		return this.plantenRepository.findOne(id);
 	}
 }

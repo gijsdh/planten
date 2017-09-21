@@ -6,6 +6,6 @@ import org.springframework.stereotype.Component;
 import com.example.planten.domain.Plant;
 
 @Component
-public interface PlantRepository extends CrudRepository<Plant, Long> {
+public interface PlantRepository extends CrudRepository<Plant, Integer> {
 
 }

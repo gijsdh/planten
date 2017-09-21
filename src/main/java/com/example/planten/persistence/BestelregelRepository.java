@@ -17,5 +17,7 @@ public interface BestelregelRepository extends CrudRepository<Bestelregels, Best
 	List<Bestelregels> findByBestellingIdAndId(Integer id);
 	
 
+	Bestelregels findBestelregelsBybestellingBestelregelsIdBestelRegelIdAndIdArtcodeID(Integer bestelID, Integer id);//findBestelRegelByBestelling_LevcodeAndBestelnrAndArtcode(Long levcode, Long bestelnr, Long artcode);
+	
 	
 }

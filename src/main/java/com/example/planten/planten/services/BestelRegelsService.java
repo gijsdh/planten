@@ -37,6 +37,13 @@ public void saveNewBestelRegel(Bestelregels bestelregels) {
 	   
 }
 
+public Bestelregels findByBothId(Integer bestenummerID, Integer ArtNummerId) {
+	   
+	return bestelregelRepository.findBestelregelsBybestellingBestelregelsIdBestelRegelIdAndIdArtcodeID(bestenummerID, ArtNummerId);
+	   
+}
+
+
 
 
 }
