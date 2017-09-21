@@ -12,6 +12,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -26,6 +27,7 @@ import com.example.planten.domain.Leveranciers;
 import com.example.planten.planten.services.BestelRegelsService;
 import com.example.planten.planten.services.BestellingService;
 import com.example.planten.planten.services.LeverancierService;
+import com.example.planten.planten.services.PlantService;
 
 
 /**
@@ -39,6 +41,8 @@ public class BestellingEndpoint {
 	@Autowired
 	private BestellingService bestelService;
 	
+	@Autowired
+	private PlantService plantservice;
 	
 	@Autowired 
 	private BestelRegelsService bestelRegelservice;
@@ -52,6 +56,8 @@ public class BestellingEndpoint {
 		return Response.ok(bestellings).build();
 		
 	}
+	
+	
 	
 
 	@GET
@@ -103,7 +109,7 @@ public class BestellingEndpoint {
 	@Path("changeTodeliverd/{idBestelling}")
 	public Response changeStatus(@RequestBody Bestelling bestelling,@PathParam("idBestelling") Integer id) {
 		
-		System.out.println("hereHHHHHHHHHHHHHHHHHHHHHHHhh");
+		
 		//System.out.println(heelobject.getBedrag());
 		Bestelling dummie = bestelService.findByid(id);
 		 
@@ -111,7 +117,7 @@ public class BestellingEndpoint {
 			dummie.setStatus("A");
 		}
 		else if(dummie.getStatus().equals("A")) {
-			System.out.println("C");
+			dummie.setStatus("C");
 		}
 		
 		
@@ -123,11 +129,20 @@ public class BestellingEndpoint {
 	}
 	                                   
 	
+	
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 //	@Produces(MediaType.TEXT_PLAIN)
 	@Path("adBestelRegel")
 	public Response adBestelRegel(@RequestBody Bestelregels bestelregel) {
+		
+		System.out.println("hallo");
+		
+		if(bestelService.findByid(bestelregel.getId().getBestelRegelId())!=null && plantservice.findById(bestelregel.getId().getArtcodeID())!=null)
+		{
+			return Response.status(Status.UNAUTHORIZED).build();
+		}
+		
 		
 		
 		bestelRegelservice.saveNewBestelRegel(bestelregel);

@@ -19,13 +19,24 @@ public class BestelRegelsId implements Serializable{
 	@Column(name="artcode")
 	private Integer artcodeID;
 	
+	
+	
+	public Integer getArtcodeID() {
+		return artcodeID;
+	}
+
+	public void setArtcodeID(Integer artcodeID) {
+		this.artcodeID = artcodeID;
+	}
+
 	public BestelRegelsId() {
 		
 	}
 	
-	public BestelRegelsId(int bestelRegelId) {
+	public BestelRegelsId(Integer bestelRegelId, Integer artcodeID) {
     
 		this.bestelRegelId=bestelRegelId;
+		this.artcodeID=artcodeID;
 	}
 
 	

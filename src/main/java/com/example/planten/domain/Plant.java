@@ -60,14 +60,26 @@ public class Plant {
 	public void setHoogte(int hoogte) {
 		this.hoogte = hoogte;
 	}
-	public Integer getBloeibeg() {
-		return bloeibeg;
+	public Months getBloeibeg() {
+		
+		if(bloeibeg!=null) {
+		return Months.values()[bloeibeg];
+		}
+		else {
+		return Months.values()[12];
+		}
+		
 	}
 	public void setBloeibeg(int bloeibeg) {
 		this.bloeibeg = bloeibeg;
 	}
-	public Integer getBloeieind() {
-		return bloeieind;
+	public Months getBloeieind() {
+		if(bloeibeg!=null) {
+			return Months.values()[bloeieind];
+			}
+			else {
+			return Months.values()[12];
+			}
 	}
 	public void setBloeieind(int bloeieind) {
 		this.bloeieind = bloeieind;

@@ -35,6 +35,7 @@ public class Bestelregels implements Serializable {
 	}
 	//@Id
 	
+	@JsonIgnore
 	@ManyToOne
 	@MapsId( "bestelnr")
 	@JoinColumn(name =  "bestelnr")

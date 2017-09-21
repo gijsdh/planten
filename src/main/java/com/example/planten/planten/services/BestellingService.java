@@ -20,6 +20,7 @@ public class BestellingService {
 	@Autowired
 	private BestellingRepository bestellingRepository;
 	
+
 	
 	public Iterable<Bestelling> findAll(){
 		return bestellingRepository.findAll();

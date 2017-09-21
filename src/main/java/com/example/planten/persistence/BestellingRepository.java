@@ -7,7 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 import com.example.planten.domain.Bestelling;
 import com.example.planten.domain.Leveranciers;
 
-public interface BestellingRepository extends CrudRepository<Bestelling, Long> {
+public interface BestellingRepository extends CrudRepository<Bestelling, Integer> {
 	
 	List<Bestelling> findByLeverancierLevnaam(String LeverancierLevnaam);
 	Bestelling findById(Integer id);

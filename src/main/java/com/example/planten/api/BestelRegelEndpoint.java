@@ -32,18 +32,7 @@ public class BestelRegelEndpoint {
 	@Autowired
 	private BestellingService bestellingService;
 	
-	@GET //werkt niet
-	@Produces(MediaType.APPLICATION_JSON)
-	@Path("{id}")
-	public Response bestelregelsVanBestelling(@PathParam("id") int id){
-		
-		BestelRegelsId bestelRegelID= new BestelRegelsId(id);
-		
-		Iterable <Bestelregels> bestelRegels  = bestelRegelsService.findByid(bestelRegelID);
-		System.out.println(bestelRegels);
-	
-		return Response.ok(bestelRegels).build();
-	}
+
 	
 	
 	@GET
