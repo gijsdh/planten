@@ -74,7 +74,7 @@ public class Plant {
 		this.bloeibeg = bloeibeg;
 	}
 	public Months getBloeieind() {
-		if(bloeibeg!=null) {
+		if(bloeieind!=null) {
 			return Months.values()[bloeieind];
 			}
 			else {
